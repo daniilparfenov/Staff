@@ -13,3 +13,5 @@ Project::Project(int id, int budget, int number_of_employees)
 int Project::get_budget() const { return budget; }
 
 int Project::get_num_of_employees() const { return number_of_employees; }
+
+int Project::getID() const { return id; }

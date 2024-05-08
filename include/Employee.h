@@ -19,6 +19,7 @@ class Project {
   ~Project() = default;
   int get_num_of_employees() const;
   int get_budget() const;
+  int getID() const;
 
  private:
   int id;
