@@ -3,15 +3,16 @@
 #include <iostream>
 
 ProjectManager::ProjectManager(int id, std::string name, int work_time,
-                               Project* projects)
-    : Employee(id, name, work_time, project_manager),
-      projects(projects),
-      projectCount(1) {}
+                               Project* startProject)
+    : Employee(id, name, work_time, project_manager) {
+  this->projectCount = 1;
+  projects.push_back(startProject);
+}
 
 int ProjectManager::calc_Heads() {
   int res = 0;
   for (int i = 0; i < projectCount; i++) {
-    res += projects[i].get_num_of_employees() * 1000;
+    res += projects[i]->get_num_of_employees() * 1000;
   }
 
   return res;
@@ -20,7 +21,7 @@ int ProjectManager::calc_Heads() {
 int ProjectManager::calc_budget_part() {
   int res = 0;
   for (int i = 0; i < projectCount; i++) {
-    res += projects[i].get_budget() / projects[i].get_num_of_employees();
+    res += projects[i]->get_budget() / projects[i]->get_num_of_employees();
   }
 
   return res;
@@ -39,7 +40,7 @@ void ProjectManager::print_info() {
   std::cout << "Count of projects: " << projectCount << std::endl;
   std::cout << "Projects: ";
   for (int i = 0; i < projectCount; i++) {
-    std::cout << projects[i].getID() << ' ';
+    std::cout << projects[i]->getID() << ' ';
   }
   std::cout << std::endl;
 }
@@ -47,8 +48,12 @@ void ProjectManager::print_info() {
 int ProjectManager::calc_pro_additions(int bonus) { return bonus; }
 
 SeniorManager::SeniorManager(int id, std::string name, int work_time,
-                             int projectCount, Project* projects)
-    : ProjectManager(id, name, work_time, projects) {
-  this->projectCount = projectCount;
-  this->position = position;
+                             Project* startProject)
+    : ProjectManager(id, name, work_time, startProject) {
+  this->position = senior_manager;
+}
+
+void SeniorManager::addProject(Project* project) {
+  projects.push_back(project);
+  projectCount++;
 }

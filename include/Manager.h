@@ -1,13 +1,16 @@
+#include <vector>
+
 #include "Employee.h"
 #include "Interfaces.h"
 
 class ProjectManager : public Employee, public Heading, public Project_Budget {
  protected:
-  Project* projects;
+  std::vector<Project*> projects;
   int projectCount;
 
  public:
-  ProjectManager(int id, std::string name, int work_time, Project* projects);
+  ProjectManager(int id, std::string name, int work_time,
+                 Project* startProject);
   ~ProjectManager() = default;
   int calc_budget_part() override;
   int calc_Heads() override;
@@ -18,7 +21,7 @@ class ProjectManager : public Employee, public Heading, public Project_Budget {
 
 class SeniorManager : public ProjectManager {
  public:
-  SeniorManager(int id, std::string name, int work_time, int projectCount,
-                Project* projects);
+  SeniorManager(int id, std::string name, int work_time, Project* startProject);
+  void addProject(Project* project);
   ~SeniorManager() = default;
 };
