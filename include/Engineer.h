@@ -41,3 +41,16 @@ class Programmer : public Engineer {
   void calc_salary() override;
   void print_info() override;
 };
+
+class TeamLeader : public Programmer, public Heading {
+ private:
+  int countOfSubordinates;
+
+ public:
+  TeamLeader(int id, std::string name, int work_time, int salary,
+             Project* project, bool isProjectCompleted, int countOfSubordinates);
+  ~TeamLeader() = default;
+  int calc_Heads() override;
+  void calc_salary() override;
+  void print_info() override;
+};

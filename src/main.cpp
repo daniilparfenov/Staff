@@ -1,6 +1,7 @@
 #include <iostream>
 #include "..\include\Personal.h"
 #include "..\include\Engineer.h"
+#include "..\include\Manager.h"
 using namespace std;
 
 
@@ -14,7 +15,7 @@ int main()
   she.calc_salary();
   she.print_info();
 
-  Project myPr(0, 1000, 2);
+  Project myPr(0, 1000, 3);
   Project* MyPrp = &myPr;
 
   Programmer proger(3, "Bob", 12, 10201, MyPrp, true);
@@ -25,5 +26,18 @@ int main()
   testir.calc_salary();
   testir.print_info();
 
+  TeamLeader John(5, "John", 12, 100000, MyPrp, true, 2);
+  John.calc_salary();
+  John.print_info();
+  Project* projects = new Project[2];
+  projects[0] = myPr;
+  Project otherPr(2, 102101, 1);
+  projects[1] = otherPr;
+  SeniorManager senior(6, "SIR", 12, 2, projects);
+  senior.calc_salary();
+  senior.print_info();
+  ProjectManager manager(7, "pprman", 12, projects);
+  manager.calc_salary();
+  manager.print_info();
   return 0;
 }

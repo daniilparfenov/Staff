@@ -16,6 +16,7 @@ enum Positions {
 class Project {
  public:
   Project(int id, int budget, int number_of_employees);
+  Project() = default;
   ~Project() = default;
   int get_num_of_employees() const;
   int get_budget() const;

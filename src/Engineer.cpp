@@ -62,3 +62,22 @@ void Programmer::print_info() {
   }
   std::cout << std::endl;
 }
+
+TeamLeader::TeamLeader(int id, std::string name, int work_time, int salary,
+                       Project* project, bool isProjectCompleted,
+                       int countOfSubordinates)
+    : Programmer(id, name, work_time, salary, project, isProjectCompleted,
+                 team_leader),
+      countOfSubordinates(countOfSubordinates) {}
+
+int TeamLeader::calc_Heads() { return countOfSubordinates * salary * 0.1; }
+
+void TeamLeader::calc_salary() {
+  payment =
+      calc_base_salary(salary, work_time) + calc_budget_part() + calc_Heads();
+}
+
+void TeamLeader::print_info() {
+  Programmer::print_info();
+  std::cout << "Count of subordinates: " << countOfSubordinates << std::endl;
+}
