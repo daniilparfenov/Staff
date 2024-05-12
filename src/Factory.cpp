@@ -1,3 +1,4 @@
+// Copyright 2024 by Parfenov Daniil
 #include "..\include\Factory.h"
 
 #include <fstream>
@@ -9,7 +10,7 @@
 #include "..\include\Manager.h"
 #include "..\include\Personal.h"
 
-Project* findProject(int projectID, std::vector<Project*>& projects) {
+Project* findProject(int projectID, const std::vector<Project*>& projects) {
   Project* requiredProject = NULL;
   for (auto& project : projects) {
     if (project->getID() == projectID) {
@@ -38,9 +39,8 @@ std::vector<Project*> StaffFactory::loadProjects() {
   return projects;
 }
 
-std::vector<Employee*> StaffFactory::loadStaff() {
-  std::vector<Project*> projects = loadProjects();
-
+std::vector<Employee*> StaffFactory::loadStaff(
+    const std::vector<Project*>& projects) {
   std::ifstream FILE("../../bd/staff_info.txt");
   std::string line = "";
   if (!FILE.is_open()) {
@@ -96,7 +96,7 @@ std::vector<Employee*> StaffFactory::loadStaff() {
 
         while (lineStream >> projectID) {
           project = findProject(projectID, projects);
-          ((SeniorManager*)newEmp)->addProject(project);
+          static_cast<SeniorManager*>(newEmp)->addProject(project);
         }
         staff.push_back(newEmp);
         break;
@@ -112,4 +112,16 @@ std::vector<Employee*> StaffFactory::loadStaff() {
     }
   }
   return staff;
+}
+
+void StaffFactory::clearData(const std::vector<Project*>& projects,
+                             const std::vector<Employee*>& staff) {
+  for (Project* project : projects) {
+    delete project;
+  }
+
+  for (Employee* emp : staff) {
+    delete emp;
+  }
+  std::cout << "All data was deleted successfully" << std::endl;
 }

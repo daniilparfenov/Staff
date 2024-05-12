@@ -1,3 +1,4 @@
+// Copyright 2024 by Parfenov Daniil
 #include "..\include\Engineer.h"
 
 Engineer::Engineer(int id, std::string name, int work_time, int salary,
@@ -20,7 +21,7 @@ void Engineer::print_info() {
 Tester::Tester(int id, std::string name, int work_time, int salary,
                Project* project, int bugsCount)
     : Engineer(id, name, work_time, salary, tester, project),
-      bugsCount(bugsCount){};
+      bugsCount(bugsCount) {}
 
 int Tester::calc_pro_additions(int bonus) { return bonus * bugsCount; }
 
@@ -31,7 +32,7 @@ void Tester::calc_salary() {
 
 void Tester::print_info() {
   Engineer::print_info();
-  std::cout << "Count of foung bugs: " << bugsCount << std::endl;
+  std::cout << "Count of found bugs: " << bugsCount << std::endl;
 }
 
 Programmer::Programmer(int id, std::string name, int work_time, int salary,
@@ -42,7 +43,7 @@ Programmer::Programmer(int id, std::string name, int work_time, int salary,
 
 int Programmer::calc_pro_additions(int bonus) {
   if (isProjectCompleted) {
-    return bonus;
+    return bonus * 10;
   }
   return 0;
 }

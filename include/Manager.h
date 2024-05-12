@@ -1,3 +1,7 @@
+// Copyright 2024 by Parfenov Daniil
+#ifndef INCLUDE_MANAGER_H_
+#define INCLUDE_MANAGER_H_
+#include <string>
 #include <vector>
 
 #include "Employee.h"
@@ -11,7 +15,7 @@ class ProjectManager : public Employee, public Heading, public Project_Budget {
  public:
   ProjectManager(int id, std::string name, int work_time,
                  Project* startProject);
-  ~ProjectManager() = default;
+  virtual ~ProjectManager() = default;
   int calc_budget_part() override;
   int calc_Heads() override;
   void calc_salary() override;
@@ -25,3 +29,4 @@ class SeniorManager : public ProjectManager {
   void addProject(Project* project);
   ~SeniorManager() = default;
 };
+#endif  // INCLUDE_MANAGER_H_

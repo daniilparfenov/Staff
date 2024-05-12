@@ -1,3 +1,4 @@
+// Copyright 2024 by Parfenov Daniil
 #ifndef INCLUDE_PERSONAL_H_
 #define INCLUDE_PERSONAL_H_
 #include <iostream>
@@ -11,6 +12,7 @@ class Personal : public Employee, public Work_Base_Time {
  public:
   Personal(int id, std::string name, int workTime, int salary,
            Positions position);
+  virtual ~Personal() = default;
   int calc_bonus_salary(int bonus = 0) override;
   void print_info() override;
   int calc_base_salary(int salary, int work_time_salary) override;
@@ -23,6 +25,7 @@ class Driver : public Personal {
  public:
   Driver(int id, std::string name, int work_time, int salary,
          int nightHours = 0);
+  ~Driver() = default;
   void calc_salary() override;
   int calc_bonus_salary(int bonus = 4) override;
   void print_info() override;

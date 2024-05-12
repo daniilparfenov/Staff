@@ -1,3 +1,4 @@
+// Copyright 2024 by Parfenov Daniil
 #ifndef INCLUDE_INTERFACES_H_
 #define INCLUDE_INTERFACES_H_
 class Heading {
@@ -16,7 +17,7 @@ class Work_Base_Time {
 class Project_Budget {
  public:
   virtual ~Project_Budget() = default;
-  ;
+
   virtual int calc_budget_part() = 0;
   virtual int calc_pro_additions(int bonus) = 0;
 };

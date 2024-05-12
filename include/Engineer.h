@@ -1,3 +1,8 @@
+// Copyright 2024 by Parfenov Daniil
+#ifndef INCLUDE_ENGINEER_H_
+#define INCLUDE_ENGINEER_H_
+#include <string>
+
 #include "Employee.h"
 #include "Interfaces.h"
 #include "Personal.h"
@@ -36,7 +41,7 @@ class Programmer : public Engineer {
   Programmer(int id, std::string name, int work_time, int salary,
              Project* project, bool isProjectCompleted,
              Positions position = programmer);
-  ~Programmer() = default;
+  virtual ~Programmer() = default;
   int calc_pro_additions(int bonus) override;
   void calc_salary() override;
   void print_info() override;
@@ -48,9 +53,11 @@ class TeamLeader : public Programmer, public Heading {
 
  public:
   TeamLeader(int id, std::string name, int work_time, int salary,
-             Project* project, bool isProjectCompleted, int countOfSubordinates);
+             Project* project, bool isProjectCompleted,
+             int countOfSubordinates);
   ~TeamLeader() = default;
   int calc_Heads() override;
   void calc_salary() override;
   void print_info() override;
 };
+#endif  // INCLUDE_ENGINEER_H_

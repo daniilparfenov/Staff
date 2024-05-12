@@ -1,3 +1,4 @@
+// Copyright 2024 by Parfenov Daniil
 #include "../include/Employee.h"
 
 Employee::Employee(int id, std::string name, int work_time, Positions position)
@@ -6,6 +7,8 @@ Employee::Employee(int id, std::string name, int work_time, Positions position)
 void Employee::setWorkTime(int workTime) { this->work_time = workTime; }
 
 int Employee::getID() const { return id; }
+
+Positions Employee::getPosition() const { return position; }
 
 Project::Project(int id, int budget, int number_of_employees)
     : id(id), budget(budget), number_of_employees(number_of_employees) {}

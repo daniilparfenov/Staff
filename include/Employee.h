@@ -1,3 +1,4 @@
+// Copyright 2024 by Parfenov Daniil
 #ifndef INCLUDE_EMPLOYEE_H_
 #define INCLUDE_EMPLOYEE_H_
 
@@ -30,11 +31,12 @@ class Project {
 class Employee {
  public:
   Employee(int id, std::string name, int work_time, Positions position);
-  ~Employee() = default;
+  virtual ~Employee() = default;
   virtual void calc_salary() = 0;
   virtual void print_info() = 0;
   void setWorkTime(int workTime);
   int getID() const;
+  Positions getPosition() const;
 
  private:
   int id;
@@ -45,8 +47,8 @@ class Employee {
   int work_time;
   std::string name;
   std::vector<std::string> enum_print = {
-      "cleaner", "driver", "tester", "programmer",
-      "senior_manager",    "project_manager",      "team_leader"};
+      "cleaner",        "driver",          "tester",     "programmer",
+      "senior_manager", "project_manager", "team_leader"};
 };
 
 #endif  // INCLUDE_EMPLOYEE_H_
