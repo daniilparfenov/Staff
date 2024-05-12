@@ -5,13 +5,13 @@
 #include <vector>
 
 enum Positions {
-  programmer,
-  team_leader,
-  project_manager,
-  senior_manager,
   cleaner,
   driver,
   tester,
+  programmer,
+  senior_manager,
+  project_manager,
+  team_leader,
 };
 class Project {
  public:
@@ -45,8 +45,8 @@ class Employee {
   int work_time;
   std::string name;
   std::vector<std::string> enum_print = {
-      "programmer", "team_leader", "project_manager", "senior_manager",
-      "cleaner",    "driver",      "tester"};
+      "cleaner", "driver", "tester", "programmer",
+      "senior_manager",    "project_manager",      "team_leader"};
 };
 
 #endif  // INCLUDE_EMPLOYEE_H_

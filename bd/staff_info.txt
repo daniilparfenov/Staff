@@ -1,0 +1,13 @@
+0 Ivanov Ivan Ivanovich 180 3 75000 0 1
+1 Petrova Anna Sergeevna 200 2 60000 2 12
+2 Smirnov Alexey Pavlovich 155 1 30000 60  
+3 Kozlova Elena Vladimirovna 220 4 0 1
+4 Nikolaev Dmitry Andreevich 185 5 2
+5 Sidorova Olga Aleksandrovna 210 0 20000 
+6 Kuznetsov Artem Viktorovich 225 6 110000 0 1 2
+7 Mikhaylova Maria Igorevna 180 3 75000 1 0
+8 Vasiliev Vladislav Olegovich 200 2 60000 1 0
+9 Pavlov Pavel Petrovich 155 2 60000 0 27
+10 Smirnova Irina Anatolyevna 195 3 75000 2 0
+11 Popov Sergey Vladimirovich 215 6 110000 1 0 2
+12 Petrovich Maria Ivanovna 205 6 110000 2 0 2

@@ -12,7 +12,7 @@ ProjectManager::ProjectManager(int id, std::string name, int work_time,
 int ProjectManager::calc_Heads() {
   int res = 0;
   for (int i = 0; i < projectCount; i++) {
-    res += projects[i]->get_num_of_employees() * 1000;
+    res += (projects[i]->get_num_of_employees()-1) * 1000;
   }
 
   return res;

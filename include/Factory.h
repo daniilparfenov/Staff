@@ -3,8 +3,10 @@
 #include "Employee.h"
 
 class StaffFactory {
+ private:
+  static std::vector<Project*> loadProjects();
+
  public:
-  std::vector<Project*> loadProjects();
-  std::vector<Employee*> loadStaff();
+  static std::vector<Employee*> loadStaff();
   ~StaffFactory() = default;
 };
